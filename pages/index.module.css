@@ -61,7 +61,11 @@
   text-align: center;
   cursor: pointer;
 }
+
 .main .result {
   font-weight: bold;
   margin-top: 40px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
