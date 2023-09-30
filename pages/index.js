@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
+import Audio from "./audio";
 import styles from "./index.module.css";
 
 export default function Home() {
@@ -39,6 +40,7 @@ export default function Home() {
 
       <main className={styles.main}>
       <img src="/aristotle.png" className={styles.icon} />
+      <Audio src="/frostfall.mp3" autoPlay={false} />
         <h3>Ask Aristotle</h3>
         <form onSubmit={onSubmit}>
           <input
