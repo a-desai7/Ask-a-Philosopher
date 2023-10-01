@@ -15,5 +15,6 @@ A web app that allows users to chat with a few of the world's most famous moral 
 
 ## Screenshots
 
+![App Screenshot](https://github.com/a-desai7/Ask-a-Philosopher/assets/63682680/6fad544f-efa9-45e0-aedb-023d93d37190)
 
 
