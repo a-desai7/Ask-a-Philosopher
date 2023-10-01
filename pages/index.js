@@ -7,7 +7,6 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState();
   const [philosopher, setPhilosopher] = useState("aristotle");
-  const formattedPhilosopher = philosopher.charAt(0).toUpperCase() + philosopher.slice(1);
 
   const handlePhilosopherChange = (event) => {
     const newPhilosopher = event.target.value;
@@ -54,15 +53,15 @@ export default function Home() {
 
       <main className={styles.main}>
       <select onChange={handlePhilosopherChange} value={philosopher} className={styles.select}>
-      <option value="aristotle">Aristotle</option>
-      <option value="kant">Kant</option>
-      <option value="mill">Mill</option>
-      <option value="laozi">Laozi </option>
-      <option value="buddha">Buddha</option>
+      <option value="Aristotle">Aristotle</option>
+      <option value="Immanuel Kant">Kant</option>
+      <option value="John Stuart Mill">Mill</option>
+      <option value="Laozi">Laozi </option>
+      <option value="Buddha">Buddha</option>
       </select>
       <img src={`/${philosopher}.png`} alt="Philosopher Sprite" className={styles.sprite} />
       <Audio src="/kynes_peace.mp3" autoPlay={false} />
-        <h3>Ask {formattedPhilosopher}</h3>
+        <h3>Ask {philosopher}</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"

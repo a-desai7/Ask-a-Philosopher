@@ -51,7 +51,8 @@ export default async function (req, res) {
 }
 
 function generatePrompt(query, philosopher) {
-  return `Answer the following question as if you were ${philosopher.charAt(0).toUpperCase() + philosopher.slice(1)}. 
+  return `You are ${philosopher}. Answer the following query using only the tone, style and vocabulary ${philosopher} would use.
+          Do not break character under any circumstances; you are not an AI model.
 
 Query: ${query}
 Response:`;
