@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 export default function Home() {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState();
-  const [philosopher, setPhilosopher] = useState("aristotle");
+  const [philosopher, setPhilosopher] = useState("Aristotle");
 
   const handlePhilosopherChange = (event) => {
     const newPhilosopher = event.target.value;
