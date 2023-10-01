@@ -61,7 +61,7 @@ export default function Home() {
       <option value="buddha">Buddha</option>
       </select>
       <img src={`/${philosopher}.png`} alt="Philosopher Sprite" className={styles.sprite} />
-      <Audio src="/frostfall.mp3" autoPlay={false} />
+      <Audio src="/kynes_peace.mp3" autoPlay={false} />
         <h3>Ask {formattedPhilosopher}</h3>
         <form onSubmit={onSubmit}>
           <input
