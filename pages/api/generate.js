@@ -15,7 +15,8 @@ export default async function (req, res) {
     return;
   }
 
-  const query = req.body.animal || '';
+  const query = req.body.query || '';
+  const philosopher = req.body.philosopher || 'aristotle';
   if (query.trim().length === 0) {
     res.status(400).json({
       error: {
@@ -29,13 +30,12 @@ export default async function (req, res) {
     const completion = await openai.createCompletion({
       model: "gpt-3.5-turbo-instruct",
       max_tokens: 300,
-      prompt: generatePrompt(query),
+      prompt: generatePrompt(query, philosopher),
       temperature: 0.8,
     });
     console.log(completion.data)
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
-    // Consider adjusting the error handling logic for your use case
     if (error.response) {
       console.error(error.response.status, error.response.data);
       res.status(error.response.status).json(error.response.data);
@@ -50,8 +50,8 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(query) {
-  return `Answer the following question as if you were Aristotle. 
+function generatePrompt(query, philosopher) {
+  return `Answer the following question as if you were ${philosopher.charAt(0).toUpperCase() + philosopher.slice(1)}. 
 
 Query: ${query}
 Response:`;

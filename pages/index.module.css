@@ -27,20 +27,21 @@
   padding-top: 60px;
 }
 .main .icon {
-  width: 34px;
+  width: 100px;
+  height: auto;
 }
 .main h3 {
   font-size: 32px;
   line-height: 40px;
   font-weight: bold;
   color: #202123;
-  margin: 16px 0 40px;
+  margin: 16px 0 10px;
 }
 
 .main button {
   position: fixed;
-  bottom: 600px; 
-  right: 10px; 
+  bottom: 92%; 
+  right: 1%; 
   padding: 12px 12px; 
   background-color: #7305a6;
   color: #fff;
@@ -48,6 +49,22 @@
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+  font-size: 16px; 
+}
+
+.main select {
+  padding: 10px;
+  position: fixed;
+  bottom: 92%; 
+  right: 91%;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #7305a6;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
   font-family: "ColfaxAI", Helvetica, sans-serif;
   font-size: 16px; 
 }
@@ -79,7 +96,8 @@
 }
 
 .main .result {
-  font-weight: bold;
+  font-weight: normal;
+  font-style: italic;
   margin-top: 40px;
   overflow-wrap: break-word;
   word-wrap: break-word;

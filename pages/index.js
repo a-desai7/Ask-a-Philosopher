@@ -6,6 +6,15 @@ import styles from "./index.module.css";
 export default function Home() {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState();
+  const [philosopher, setPhilosopher] = useState("aristotle");
+  const formattedPhilosopher = philosopher.charAt(0).toUpperCase() + philosopher.slice(1);
+
+  const handlePhilosopherChange = (event) => {
+    const newPhilosopher = event.target.value;
+    setPhilosopher(newPhilosopher);
+    setResult("");
+  };
+  
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -15,7 +24,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: query }),
+        body: JSON.stringify({ query, philosopher }),
       });
 
       const data = await response.json();
@@ -35,18 +44,30 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Ask Aristotle</title>
+        <title>Ask a Philosopher</title>
+        <link rel="icon" href="favicon_io/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+        <link rel="manifest" href="/site.webmanifest"/>
       </Head>
 
       <main className={styles.main}>
-      <img src="/aristotle.png" className={styles.icon} />
+      <select onChange={handlePhilosopherChange} value={philosopher} className={styles.select}>
+      <option value="aristotle">Aristotle</option>
+      <option value="kant">Kant</option>
+      <option value="mill">Mill</option>
+      <option value="laozi">Laozi </option>
+      <option value="buddha">Buddha</option>
+      </select>
+      <img src={`/${philosopher}.png`} alt="Philosopher Sprite" className={styles.sprite} />
       <Audio src="/frostfall.mp3" autoPlay={false} />
-        <h3>Ask Aristotle</h3>
+        <h3>Ask {formattedPhilosopher}</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="query"
-            placeholder="What's on your mind today?"
+            placeholder="What's on your mind?"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
